@@ -1,6 +1,7 @@
 from tkinter import Tk, BOTH, Canvas
 from point import Point
 from line import Line
+from cell import Cell
 
 class Window:
     def __init__(self, width, height):
@@ -32,10 +33,11 @@ class Window:
 
 def main():
     win = Window(800, 600)
-    p1 = Point(10,10)
-    p2 = Point(150,150)
-    line1 = Line(p1,p2)
-    win.draw_line(line1, 'black')
+    for i in range(10):
+        p1 = Point(i *10,i *10)
+        p2 = Point(i *20,i * 20)
+        cell = Cell(win, p1, p2)
+        cell.draw()
     win.wait_for_close()
 
 
