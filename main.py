@@ -32,12 +32,16 @@ class Window:
 
 
 def main():
+    cells = []
     win = Window(800, 600)
     for i in range(10):
-        p1 = Point(i *10,i *10)
-        p2 = Point(i *20,i * 20)
-        cell = Cell(win, p1, p2)
+        p1 = Point(i *10, 10)
+        p2 = Point(10 * (i + 1), 20)
+        cells.append(Cell(win, p1, p2))
+    for cell in cells:
         cell.draw()
+    for i in range(len(cells) - 1):
+        cells[i].draw_move(cells[i+1])
     win.wait_for_close()
 
 

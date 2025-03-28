@@ -24,3 +24,19 @@ class Cell:
         if self.has_left_wall:
             left_line = Line(self.top_left, Point(self.bottom_right.x, self.top_left.y))
             self._win.draw_line(left_line, 'black')
+
+    def draw_move(self, to_cell, undo=False):
+        point_cx = midpoint(self.top_left.x, self.bottom_right.x)
+        point_cy = midpoint(self.top_left.y, self.bottom_right.y)
+        point_dx = midpoint(to_cell.top_left.x, to_cell.bottom_right.x)
+        point_dy = midpoint(to_cell.top_left.y, to_cell.bottom_right.y)
+        point_c = Point(point_cx, point_cy)
+        point_d = Point(point_dx, point_dy)
+        line = Line(point_c, point_d)
+        if undo:
+            self._win.draw_line(line, 'gray')
+        else:
+            self._win.draw_line(line, 'red')
+
+def midpoint(value1, value2):
+    return (value2 - value1) / 2 + value1
