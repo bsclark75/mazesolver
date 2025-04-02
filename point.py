@@ -5,5 +5,8 @@ class Point:
 
     def get_coords(self):
         return self.x, self.y
+    
+    def __repr__(self):
+        return f"Point: x: {self.x} y: {self.y}"
 
     

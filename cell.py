@@ -2,7 +2,7 @@ from line import Line
 from point import Point
 
 class Cell:
-    def __init__(self, win, top_left, bottom_right):
+    def __init__(self, top_left, bottom_right, win=None):
         self.top_left = top_left
         self.bottom_right = bottom_right
         self.has_left_wall = True
@@ -10,6 +10,9 @@ class Cell:
         self.has_top_wall = True
         self.has_bottom_wall = True
         self._win = win
+
+    def __repr__(self):
+        return f"Cell: top-left: {self.top_left} bottom-right: {self.bottom_right}"
 
     def draw(self):
         if self.has_top_wall:
