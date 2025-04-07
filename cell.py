@@ -10,6 +10,7 @@ class Cell:
         self.has_top_wall = True
         self.has_bottom_wall = True
         self._win = win
+        self.visited = False
 
     def __repr__(self):
         return f"Cell: top-left: {self.top_left} bottom-right: {self.bottom_right}"
