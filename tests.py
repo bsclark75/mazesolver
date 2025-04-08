@@ -27,5 +27,21 @@ class Tests(unittest.TestCase):
         self.assertFalse(m1._cells[0][0].has_top_wall)
         self.assertFalse(m1._cells[num_rows -1][num_cols -1].has_bottom_wall)
 
+    def test_reset_visited(self):
+        m1 = Maze(Point(0,0), 12, 10, 10, 10)
+        
+        # Ensure all cells are initially visited
+        for row in m1._cells:
+            for cell in row:
+                cell.visited = True
+
+        # Call the method to reset
+        m1._reset_visited()
+
+        # Check if all cells are now unvisited
+        for row in m1._cells:
+            for cell in row:
+                self.assertFalse(cell.visited)
+
 if __name__ == "__main__":
     unittest.main()

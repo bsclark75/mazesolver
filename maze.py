@@ -88,3 +88,8 @@ class Maze:
                 self._cells[next_i][next_j].has_left_wall = False
 
             self._break_walls_r(next_i, next_j)
+
+    def _reset_visited(self):
+        for rows in self._cells:
+            for cell in rows:
+                cell.visited = False
