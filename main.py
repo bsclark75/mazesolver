@@ -32,9 +32,12 @@ class Window:
 
 def main():
     win = Window(800, 600)
-    maze = Maze(Point(10,10),25,25,10,10,win, 0)
+    maze = Maze(Point(10,10),25,25,10,10,win)
     maze._break_entrance_and_exit()
     maze._break_walls_r(0,0)
+    maze._reset_visited()
+    result = maze.solve()
+    print(result)
     win.wait_for_close()
 
 

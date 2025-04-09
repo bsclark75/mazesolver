@@ -13,7 +13,7 @@ class Cell:
         self.visited = False
 
     def __repr__(self):
-        return f"Cell: top-left: {self.top_left} bottom-right: {self.bottom_right}"
+        return f"Cell: top-left: {self.top_left} bottom-right: {self.bottom_right} top: {self.has_top_wall} left: {self.has_left_wall} right: {self.has_right_wall} bottom: {self.has_bottom_wall}"
 
     def draw(self):
         top_line = Line(self.top_left, Point(self.top_left.x, self.bottom_right.y))
@@ -38,6 +38,7 @@ class Cell:
             self._win.draw_line(left_line, 'light gray')
 
     def draw_move(self, to_cell, undo=False):
+       # print(to_cell, undo)
         point_cx = midpoint(self.top_left.x, self.bottom_right.x)
         point_cy = midpoint(self.top_left.y, self.bottom_right.y)
         point_dx = midpoint(to_cell.top_left.x, to_cell.bottom_right.x)
